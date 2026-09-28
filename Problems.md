@@ -1,4 +1,4 @@
-#Problem 1
+# Problem 1
 
 
 Given an array nums containing n distinct numbers taken from the range [0, n], return the only number in the range that is missing from the array.
@@ -21,7 +21,7 @@ Explanation: n = 2 since there are 2 numbers. The range is [0, 2]. 2 is missing.
 
 
 
-#Problem 2
+# Problem 2
 
 Given an array of student attendance records, generate a formatted report string for each student.
 Each student record is an object with the following properties:
@@ -48,3 +48,34 @@ formatAttendanceReport([
   { name: "Sam", present: 12, total: 20 }
 ]);
 // ["Lina: 15/20 (75%) - Good", "Sam: 12/20 (60%) - At Risk"]
+
+
+
+
+# Problem 3
+
+When building user interfaces, we often have to deal with incomplete or nested data.
+Write a function generateProfileCard that takes a user object and returns a formatted profile string in the following format:
+"{name} | {city} | followers: {followers}"
+
+Fallback Rules
+If certain fields are missing (null or undefined), use these fallbacks:
+
+name: defaults to "Anonymous"
+address.city: defaults to "Unknown"
+social.followers: defaults to 0
+Important: Empty strings "" and the number 0 are valid values and must not be replaced by fallbacks. Use optional chaining (?.) and the nullish coalescing operator (??) to handle this safely.
+
+Examples
+generateProfileCard({
+  name: "Rafi",
+  address: { city: "Dhaka" },
+  social: { followers: 0 }
+});
+// Returns: "Rafi | Dhaka | followers: 0"
+
+generateProfileCard({
+  name: "Alice",
+  social: { followers: 120 }
+});
+// Returns: "Alice | Unknown | followers: 120"
