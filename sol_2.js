@@ -1,5 +1,5 @@
 function formatAttendanceReport(students) {
-   return students.map(({ name, present, total }) => {
+  return students.map(({ name, present, total }) => {
     const percentage = Math.round((present / total) * 100);
 
     let status;
@@ -11,3 +11,7 @@ function formatAttendanceReport(students) {
     } else {
       status = "At Risk";
     }
+
+    return `${name}: ${present}/${total} (${percentage}%) - ${status}`;
+  });
+}
