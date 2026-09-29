@@ -110,3 +110,101 @@ Example 2:
 Input: totalItems = 24, pageSize = 5, currentPage = 3
 Output: { totalPages: 5, startItem: 11, endItem: 15, hasPrev: true, hasNext: true }
 Explanation: Page 3 contains items 11 through 15. There are pages before (1, 2) and after (4, 5).
+
+
+# Problem 5
+Given an array of daily rainfall measurements, find all the "peak" days.
+
+A day is considered a peak if its rainfall is strictly higher than both its immediate left (previous day) and right (next day) neighbors.
+
+Because the first and last days do not have both neighbors, they can never be peaks.
+
+Return an array of the 1-based day numbers (i.e., the first day is day 1, the second is day 2, etc.) that are peaks, in chronological order.
+
+Examples
+findRainfallPeaks([2, 5, 3, 3, 7, 4, 4, 6]) should return [2, 5] because:
+
+Day 2 (value 5) is strictly greater than Day 1 (2) and Day 3 (3).
+Day 5 (value 7) is strictly greater than Day 4 (3) and Day 6 (4).
+Day 8 (value 6) only has a left neighbor, so it cannot be a peak.
+findRainfallPeaks([1, 2, 3, 2, 1]) should return [3] because Day 3 (value 3) is strictly greater than Day 2 (2) and Day 4 (2).
+
+# Problem 6
+
+Write a function that takes a year, month, and day as numbers and returns the name of the weekday for that date.
+
+Note that the month parameter is 1-indexed (1 for January, 2 for February, ..., 12 for December).
+
+Examples
+getDayOfWeek(2024, 5, 11); // "Saturday"
+getDayOfWeek(2023, 1, 1);   // "Sunday"
+Example 1
+Input: year = 2024, month = 5, day = 11
+
+Output: "Saturday"
+
+Explanation: May 11, 2024 was a Saturday.
+
+Example 2
+Input: year = 2023, month = 1, day = 1
+
+Output: "Sunday"
+
+Explanation: January 1, 2023 was a Sunday.
+
+
+# Problem 7
+Given two arrays of candidate skill names, find all skills shared by both candidates.
+
+The comparison must be case-insensitive. The returned array must:
+
+Contain each shared skill converted to lowercase.
+Contain no duplicate values.
+Be sorted alphabetically in ascending order.
+Examples
+commonSkills(["JS", "React", "Node"], ["react", "css", "js"]);
+// Returns: ["js", "react"]
+commonSkills(["Python", "SQL"], ["Java", "C++"]);
+// Returns: []
+Example 1
+Input: skills1 = ["JS","React","Node"], skills2 = ["react","css","js"]
+
+Output: ["js","react"]
+
+Explanation: Matching skills are "js" and "react", returned in alphabetical order.
+
+Example 2
+Input: skills1 = ["Python","SQL"], skills2 = ["Java","C++"]
+
+Output: []
+
+Explanation: No common skills exist.
+
+
+# Problem 8
+
+Write a function that takes an object and returns a new object where the keys and values are swapped.
+
+If multiple keys in the original object share the same value, the key that appears later in the object's property order should overwrite any previous ones ("later key wins").
+
+Note: In JavaScript, object keys are always strings. Therefore, the values in the returned object (which were the keys of the input object) should be strings.
+
+Examples
+swapKeysAndValues({ a: "x", b: "y" });
+// => { x: "a", y: "b" }
+
+swapKeysAndValues({ a: "x", b: "x" });
+// => { x: "b" }
+Example 1
+Input: obj = {"a":"x","b":"y"}
+
+Output: {"x":"a","y":"b"}
+
+Explanation: Simple swap with unique values.
+
+Example 2
+Input: obj = {"a":"x","b":"x"}
+
+Output: {"x":"b"}
+
+Explanation: Both keys 'a' and 'b' map to 'x'. Since 'b' is processed later, it overwrites 'a'.
