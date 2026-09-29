@@ -208,3 +208,106 @@ Input: obj = {"a":"x","b":"x"}
 Output: {"x":"b"}
 
 Explanation: Both keys 'a' and 'b' map to 'x'. Since 'b' is processed later, it overwrites 'a'.
+
+
+# Problem 9
+You are given an array of student objects, each with a name (string) and marks (number). Your task is to group these students into different grade bands based on their marks.
+
+The grade bands are defined as follows:
+
+A: Marks 80 or above
+B: Marks between 70 and 79 (inclusive)
+C: Marks between 60 and 69 (inclusive)
+F: Marks below 60
+The function should return an object where the keys are the grade bands ('A', 'B', 'C', 'F') and the values are arrays of student objects belonging to that band. If a band has no students, its array should be empty.
+
+Examples
+// Example 1
+const students1 = [
+  { name: "Alice", marks: 85 },
+  { name: "Bob", marks: 72 },
+  { name: "Charlie", marks: 58 },
+  { name: "David", marks: 91 }
+];
+// Should return:
+// {
+//   A: [{ name: "Alice", marks: 85 }, { name: "David", marks: 91 }],
+//   B: [{ name: "Bob", marks: 72 }],
+//   C: [],
+//   F: [{ name: "Charlie", marks: 58 }]
+// }
+
+// Example 2
+const students2 = [
+  { name: "Eve", marks: 65 },
+  { name: "Frank", marks: 60 }
+];
+// Should return:
+// {
+//   A: [],
+//   B: [],
+//   C: [{ name: "Eve", marks: 65 }, { name: "Frank", marks: 60 }],
+//   F: []
+// }
+Example 1
+Input: students = [{"marks":85,"name":"Alice"},{"marks":72,"name":"Bob"},{"marks":58,"name":"Charlie"},{"marks":91,"name":"David"}]
+
+Output: {"A":[{"marks":85,"name":"Alice"},{"marks":91,"name":"David"}],"B":[{"marks":72,"name":"Bob"}],"C":[],"F":[{"marks":58,"name":"Charlie"}]}
+
+Example 2
+Input: students = [{"marks":65,"name":"Eve"},{"marks":60,"name":"Frank"}]
+
+Output: {"A":[],"B":[],"C":[{"marks":65,"name":"Eve"},{"marks":60,"name":"Frank"}],"F":[]}
+
+
+# problem 10
+Simulate a customer service ticket line based on a list of event commands. Your function should process the commands in order and return an object with two arrays: queue (the people still waiting, in order from front to back) and served (the people who were served, in the order they were served).
+
+The possible commands are:
+
+"join <name>": Adds <name> to the back of the queue. If someone with that name is already in the queue, ignore the command.
+"leave <name>": Removes <name> from the queue if they are currently waiting. If they are not in the queue, ignore the command.
+"serve": Removes the person at the front of the queue and appends their name to served. If the queue is empty, do nothing.
+Note: A person who has been served is no longer in the queue and may join again later.
+
+Examples
+Example 1
+simulateTicketQueue([
+  "join Rafi",
+  "join Sara",
+  "serve",
+  "join Alex",
+  "leave Sara",
+  "serve"
+]);
+// Returns: { queue: [], served: ["Rafi", "Alex"] }
+Example 2
+simulateTicketQueue([
+  "serve",
+  "join Bob",
+  "join Bob",
+  "leave Alice",
+  "join Alice",
+  "serve"
+]);
+// Returns: { queue: ["Alice"], served: ["Bob"] }
+Example 1
+Input: commands = ["join Rafi","join Sara","serve","join Alex","leave Sara","serve"]
+
+Output: {"queue":[],"served":["Rafi","Alex"]}
+
+Explanation: Rafi is served first. Sara leaves, leaving Alex next. Alex is served next.
+
+Example 2
+Input: commands = ["serve","join Bob","join Bob","leave Alice","join Alice","serve"]
+
+Output: {"queue":["Alice"],"served":["Bob"]}
+
+Explanation: Initial serve on empty queue does nothing. Duplicate join Bob is ignored. Alice is served after Bob.
+
+Constraints
+0 <= commands.length <= 1000
+Each command string is either "serve", "join <name>", or "leave <name>"
+Names are non-empty strings and case-sensitive
+
+Topics
