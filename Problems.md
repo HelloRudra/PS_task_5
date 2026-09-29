@@ -79,3 +79,34 @@ generateProfileCard({
   social: { followers: 120 }
 });
 // Returns: "Alice | Unknown | followers: 120"
+
+
+
+# Problem 4
+When building user interfaces, you often need to paginate a list of items. Given the total number of items, the page size, and the current active page, calculate the metadata needed to render the pagination controls.
+
+Write a function getPageMetadata that accepts:
+
+totalItems (non-negative integer): The total number of items in the collection.
+pageSize (positive integer): The maximum number of items displayed per page.
+currentPage (positive integer): The current 1-based page number.
+It should return an object containing:
+
+totalPages: The total number of pages (0 if there are no items).
+startItem: The 1-based index of the first item on the current page (0 if there are no items).
+endItem: The 1-based index of the last item on the current page (0 if there are no items).
+hasPrev: A boolean indicating if there is a previous page.
+hasNext: A boolean indicating if there is a next page.
+Note: You can assume currentPage will always be a valid page number from 1 to totalPages (unless totalItems is 0, in which case currentPage will be 1).
+
+Examples
+Example 1:
+
+Input: totalItems = 95, pageSize = 10, currentPage = 10
+Output: { totalPages: 10, startItem: 91, endItem: 95, hasPrev: true, hasNext: false }
+Explanation: Page 10 is the last page, starting at item 91 and ending at the last item (95).
+Example 2:
+
+Input: totalItems = 24, pageSize = 5, currentPage = 3
+Output: { totalPages: 5, startItem: 11, endItem: 15, hasPrev: true, hasNext: true }
+Explanation: Page 3 contains items 11 through 15. There are pages before (1, 2) and after (4, 5).
